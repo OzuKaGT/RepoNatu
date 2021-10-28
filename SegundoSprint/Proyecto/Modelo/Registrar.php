@@ -71,9 +71,9 @@ class Persona{
 
     public function adUsuario(){
         
-        $m=new CONEXION();
-        $reg="INSERT INTO usuarios_natu (Nombres, Apellidos, Fecha_Nacimiento, Telefono, Correo, Contraseña)  
-        VALUES ('$this->names', '$this->lnames','$this->fecha', '$this->tel', '$this->corre', '$this->contra')";
+        // $m=new CONEXION();
+        // $reg="INSERT INTO usuarios_natu (Nombres, Apellidos, Fecha_Nacimiento, Telefono, Correo, Contraseña)  
+        // VALUES ('$this->names', '$this->lnames','$this->fecha', '$this->tel', '$this->corre', '$this->contra')";
 
         $m->query($reg);
         if($m==TRUE){

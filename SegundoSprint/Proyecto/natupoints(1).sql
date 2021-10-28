@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2021 a las 03:33:54
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 7.3.27
+-- Tiempo de generación: 28-10-2021 a las 18:29:16
+-- Versión del servidor: 10.4.20-MariaDB
+-- Versión de PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -134,7 +134,7 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `RegistrarUsuario` (IN `Name` VARCHAR(30), IN `Ape` VARCHAR(30), IN `Fecha` DATE, IN `Tele` INT, IN `Email` VARCHAR(50), IN `Pass` VARCHAR(25))  BEGIN
 
-	INSERT INTO usuarios
+	INSERT INTO usuarios_natu
     VALUES ('', Name, Ape, Fecha, Tele, Email, Pass);
 
 END$$
@@ -163,72 +163,37 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `actualizacion_usuarios`
+-- Estructura de tabla para la tabla `admins_natu`
 --
 
-CREATE TABLE `actualizacion_usuarios` (
-  `Id_Usuario` int(11) DEFAULT NULL,
-  `anterior_Nombres` varchar(30) DEFAULT NULL,
-  `anterior_Apellidos` varchar(40) DEFAULT NULL,
-  `anterior_Fecha_Nacimiento` date DEFAULT NULL,
-  `anterior_Telefono` int(10) DEFAULT NULL,
-  `anterior_Correo` varchar(70) DEFAULT NULL,
-  `anterior_Contraseña` varchar(30) DEFAULT NULL,
-  `nuevo_Nombres` varchar(30) DEFAULT NULL,
-  `nuevo_Apellidos` varchar(40) DEFAULT NULL,
-  `nuevo_Fecha_Nacimiento` date DEFAULT NULL,
-  `nuevo_Telefono` int(10) DEFAULT NULL,
-  `nuevo_Correo` varchar(70) DEFAULT NULL,
-  `nuevo_Contraseña` varchar(30) DEFAULT NULL,
-  `UsuarioModificacion` varchar(20) NOT NULL,
-  `Fecha_Modificacion` datetime NOT NULL
+CREATE TABLE `admins_natu` (
+  `Id_Admin` int(12) NOT NULL,
+  `Nombres` varchar(30) NOT NULL,
+  `Apellidos` varchar(30) NOT NULL,
+  `Correo` varchar(50) NOT NULL,
+  `Contraseña` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `actualizacion_usuarios`
---
-
-INSERT INTO `actualizacion_usuarios` (`Id_Usuario`, `anterior_Nombres`, `anterior_Apellidos`, `anterior_Fecha_Nacimiento`, `anterior_Telefono`, `anterior_Correo`, `anterior_Contraseña`, `nuevo_Nombres`, `nuevo_Apellidos`, `nuevo_Fecha_Nacimiento`, `nuevo_Telefono`, `nuevo_Correo`, `nuevo_Contraseña`, `UsuarioModificacion`, `Fecha_Modificacion`) VALUES
-(NULL, 'Nataly ', 'Carvajal', '2003-10-02', 322, 'NataC@gmail.com', '123456', 'Gerardo ', 'Jimenez', '2000-12-12', 312, 'Gerardito@gmail.com', '123456', 'root@localhost', '2021-06-16 00:00:00'),
-(NULL, 'Mateo ', 'Gonzalez', '2002-04-12', 310, 'MateoG@gmail.com', '123456', 'Maria', 'Romero', '2000-05-12', 315, 'MariaR@gmail.com', '123456', 'root@localhost', '2021-06-16 14:46:30');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `calificación`
+-- Estructura de tabla para la tabla `calificacion_natu`
 --
 
-CREATE TABLE `calificación` (
+CREATE TABLE `calificacion_natu` (
   `ID_Calificacion` int(11) NOT NULL,
   `Id_Usuario` int(11) NOT NULL,
   `ID_Zona` int(11) NOT NULL,
   `N_Estrellas` enum('1','2','3','4','5') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `calificación`
---
-
-INSERT INTO `calificación` (`ID_Calificacion`, `Id_Usuario`, `ID_Zona`, `N_Estrellas`) VALUES
-(1, 12, 8, '3'),
-(2, 11, 9, '4'),
-(3, 14, 3, '3'),
-(4, 15, 10, '5'),
-(5, 13, 4, '4'),
-(6, 13, 7, '4'),
-(7, 12, 6, '4'),
-(8, 11, 2, '3'),
-(9, 11, 5, '5'),
-(10, 18, 8, '1'),
-(11, 14, 8, '2');
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `fauna`
+-- Estructura de tabla para la tabla `fauna_natu`
 --
 
-CREATE TABLE `fauna` (
+CREATE TABLE `fauna_natu` (
   `ID_Fauna` int(11) NOT NULL,
   `ID_Zona` int(11) NOT NULL,
   `NombreFauna` varchar(200) NOT NULL,
@@ -240,10 +205,10 @@ CREATE TABLE `fauna` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `flora`
+-- Estructura de tabla para la tabla `flora_natu`
 --
 
-CREATE TABLE `flora` (
+CREATE TABLE `flora_natu` (
   `ID_Flora` int(11) NOT NULL,
   `ID_Zona` int(11) NOT NULL,
   `Nombre` varchar(200) NOT NULL,
@@ -255,30 +220,28 @@ CREATE TABLE `flora` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `inicio_usuario`
+-- Estructura de tabla para la tabla `inicio_usuario_natu`
 --
 
-CREATE TABLE `inicio_usuario` (
-  `Correo` varchar(30) NOT NULL,
+CREATE TABLE `inicio_usuario_natu` (
+  `Correo` varchar(70) NOT NULL,
   `Contraseña` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `inicio_usuario`
+-- Volcado de datos para la tabla `inicio_usuario_natu`
 --
 
-INSERT INTO `inicio_usuario` (`Correo`, `Contraseña`) VALUES
-('OscarR@gmail.com', '123456'),
-('JaiderR@gmail.com', '123465'),
-('JhosepB@gmail.com', '123456');
+INSERT INTO `inicio_usuario_natu` (`Correo`, `Contraseña`) VALUES
+('dasdas@jkaskd', '123456');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `usuarios_natu`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE `usuarios_natu` (
   `Id_Usuario` int(9) NOT NULL,
   `Nombres` varchar(30) NOT NULL,
   `Apellidos` varchar(40) NOT NULL,
@@ -289,68 +252,33 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Volcado de datos para la tabla `usuarios_natu`
 --
 
-INSERT INTO `usuarios` (`Id_Usuario`, `Nombres`, `Apellidos`, `Fecha_Nacimiento`, `Telefono`, `Correo`, `Contraseña`) VALUES
-(11, 'Oscar', 'Rodriguez', '2000-07-24', 305, 'OscarR@gmail.com', '2468'),
-(12, 'Jaider ', 'Rodriguez', '2003-05-24', 312, 'JaiderR@gmail.com', '123456'),
-(13, 'Sarena ', 'Linares', '2002-11-29', 320, 'SarenaL@gmail.com', '123456'),
-(14, 'Maria', 'Romero', '2000-05-12', 315, 'MariaR@gmail.com', '123456'),
-(15, 'Gerardo ', 'Jimenez', '2000-12-12', 312, 'Gerardito@gmail.com', '123456'),
-(18, 'Jhosep', 'Barrios', '2000-08-25', 310, 'JhosepB@gmail.com', '123456');
+INSERT INTO `usuarios_natu` (`Id_Usuario`, `Nombres`, `Apellidos`, `Fecha_Nacimiento`, `Telefono`, `Correo`, `Contraseña`) VALUES
+(2, 'Vanesa', 'Mendez', '1997-10-16', 312, 'dasdas@jkaskd', '123456');
 
 --
--- Disparadores `usuarios`
+-- Disparadores `usuarios_natu`
 --
 DELIMITER $$
-CREATE TRIGGER `Eliminar_Usuario` BEFORE DELETE ON `usuarios` FOR EACH ROW INSERT INTO usuarios_eliminados (Nombre_Borrado, Apellidos_Borrado, Fecha_Borrado, Telefono_Borrado, Correo_Borrado, Contraseña_Borrado, Fecha_De_Borrado, Usuario_Responsable)
-VALUES (old.Nombres, old.Apellidos, old.Fecha_Nacimiento, old.Telefono, old.Correo, old.Contraseña, now(), CURRENT_USER())
+CREATE TRIGGER `Eliminar_correo` BEFORE DELETE ON `usuarios_natu` FOR EACH ROW DELETE FROM inicio_usuario_natu 
+WHERE Correo=old.Correo
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `Inicio_Sesion` BEFORE INSERT ON `usuarios` FOR EACH ROW INSERT INTO inicio_usuario (Correo, Contraseña)
+CREATE TRIGGER `Inicio_Sesion` AFTER INSERT ON `usuarios_natu` FOR EACH ROW INSERT INTO inicio_usuario_natu (Correo, Contraseña)
 VALUES (new.Correo, new.Contraseña)
 $$
 DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `actualizar_usuario` BEFORE UPDATE ON `usuarios` FOR EACH ROW INSERT INTO actualizacion_usuarios (anterior_Nombres, anterior_Apellidos, anterior_Fecha_Nacimiento, anterior_Telefono, anterior_Correo, anterior_Contraseña, nuevo_Nombres, nuevo_Apellidos, nuevo_Fecha_Nacimiento, nuevo_Telefono, nuevo_Correo, nuevo_Contraseña, UsuarioModificacion, Fecha_Modificacion) 
-VALUES (old.Nombres, old.Apellidos, old.Fecha_Nacimiento, old.Telefono, old.Correo, old.Contraseña, new.Nombres, new.Apellidos, new.Fecha_Nacimiento, new.Telefono, new.Correo, new.Contraseña, current_user(), now())
-$$
-DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios_eliminados`
+-- Estructura de tabla para la tabla `zonas_artificiales_natu`
 --
 
-CREATE TABLE `usuarios_eliminados` (
-  `Id_Usuario` int(11) NOT NULL,
-  `Nombre_Borrado` varchar(30) NOT NULL,
-  `Apellidos_Borrado` varchar(40) NOT NULL,
-  `Fecha_Borrado` date NOT NULL,
-  `Telefono_Borrado` int(10) NOT NULL,
-  `Correo_Borrado` varchar(40) NOT NULL,
-  `Contraseña_Borrado` varchar(30) NOT NULL,
-  `Fecha_De_Borrado` datetime NOT NULL,
-  `Usuario_Responsable` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `usuarios_eliminados`
---
-
-INSERT INTO `usuarios_eliminados` (`Id_Usuario`, `Nombre_Borrado`, `Apellidos_Borrado`, `Fecha_Borrado`, `Telefono_Borrado`, `Correo_Borrado`, `Contraseña_Borrado`, `Fecha_De_Borrado`, `Usuario_Responsable`) VALUES
-(0, 'Jhosep', 'Barrios', '2000-12-15', 312, 'YusepeB@gmail.com', '123456', '2021-06-16 14:54:20', 'root@localhost');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `zonas_artificiales`
---
-
-CREATE TABLE `zonas_artificiales` (
+CREATE TABLE `zonas_artificiales_natu` (
   `ID_Zona` int(11) NOT NULL,
   `Nombre` varchar(200) NOT NULL,
   `Ubicación` varchar(300) NOT NULL,
@@ -359,21 +287,22 @@ CREATE TABLE `zonas_artificiales` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `zonas_artificiales`
+-- Volcado de datos para la tabla `zonas_artificiales_natu`
 --
 
-INSERT INTO `zonas_artificiales` (`ID_Zona`, `Nombre`, `Ubicación`, `Descripcion`, `Imagen`) VALUES
+INSERT INTO `zonas_artificiales_natu` (`ID_Zona`, `Nombre`, `Ubicación`, `Descripcion`, `Imagen`) VALUES
 (5, 'Parque San Mateo', 'San mateo', '', ''),
 (3, 'Parque Tibanica', 'San Mateo - Soacha', '', ''),
-(2, 'Las Arenosas', 'Soacha Compartir', '', '');
+(2, 'Las Arenosas', 'Soacha Compartir', '', ''),
+(13, 'Polideportivo Valles De Cafam', 'Carrera 2D', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `zonas_naturales`
+-- Estructura de tabla para la tabla `zonas_naturales_natu`
 --
 
-CREATE TABLE `zonas_naturales` (
+CREATE TABLE `zonas_naturales_natu` (
   `ID_Zona` int(11) NOT NULL,
   `Nombre` varchar(200) NOT NULL,
   `Ubicación` varchar(300) NOT NULL,
@@ -382,31 +311,32 @@ CREATE TABLE `zonas_naturales` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `zonas_naturales`
+-- Volcado de datos para la tabla `zonas_naturales_natu`
 --
 
-INSERT INTO `zonas_naturales` (`ID_Zona`, `Nombre`, `Ubicación`, `Descripcion`, `Imagen`) VALUES
+INSERT INTO `zonas_naturales_natu` (`ID_Zona`, `Nombre`, `Ubicación`, `Descripcion`, `Imagen`) VALUES
 (1, 'Reserva Natural Boquemonte', 'Via la mesa ', '', ''),
 (4, 'Parque Natural Chicaque', 'Via Mosquera', '', ''),
 (6, 'Humedal Neuta', 'Quintas de la laguna ', '', ''),
-(7, 'Humedal Indumil', 'Via indumil', '', '');
+(7, 'Humedal Indumil', 'Via indumil', '', ''),
+(12, 'Salto el tequendama', 'Alto de la cascada', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `zonas_verdes`
+-- Estructura de tabla para la tabla `zonas_verdes_natu`
 --
 
-CREATE TABLE `zonas_verdes` (
+CREATE TABLE `zonas_verdes_natu` (
   `ID_Zona` int(15) NOT NULL,
   `Nombre` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `zonas_verdes`
+-- Volcado de datos para la tabla `zonas_verdes_natu`
 --
 
-INSERT INTO `zonas_verdes` (`ID_Zona`, `Nombre`) VALUES
+INSERT INTO `zonas_verdes_natu` (`ID_Zona`, `Nombre`) VALUES
 (1, 'Boquemonte'),
 (2, 'Las arenosas'),
 (3, 'Tibanica'),
@@ -417,76 +347,72 @@ INSERT INTO `zonas_verdes` (`ID_Zona`, `Nombre`) VALUES
 (8, 'La Poma'),
 (9, 'Portalegre'),
 (10, 'Cagua'),
-(11, 'La amistad');
+(11, 'La amistad'),
+(12, 'Salto del Tequendama'),
+(13, 'Polideportivo Valles De Cafam');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `actualizacion_usuarios`
+-- Indices de la tabla `admins_natu`
 --
-ALTER TABLE `actualizacion_usuarios`
-  ADD KEY `Id_Usuario` (`Id_Usuario`);
+ALTER TABLE `admins_natu`
+  ADD PRIMARY KEY (`Id_Admin`);
 
 --
--- Indices de la tabla `calificación`
+-- Indices de la tabla `calificacion_natu`
 --
-ALTER TABLE `calificación`
+ALTER TABLE `calificacion_natu`
   ADD PRIMARY KEY (`ID_Calificacion`),
   ADD KEY `Calificacion` (`Id_Usuario`),
   ADD KEY `ID_Zona` (`ID_Zona`);
 
 --
--- Indices de la tabla `fauna`
+-- Indices de la tabla `fauna_natu`
 --
-ALTER TABLE `fauna`
+ALTER TABLE `fauna_natu`
   ADD PRIMARY KEY (`ID_Fauna`),
   ADD KEY `ID_Zona` (`ID_Zona`);
 
 --
--- Indices de la tabla `flora`
+-- Indices de la tabla `flora_natu`
 --
-ALTER TABLE `flora`
+ALTER TABLE `flora_natu`
   ADD PRIMARY KEY (`ID_Flora`),
   ADD KEY `ID_Zona` (`ID_Zona`);
 
 --
--- Indices de la tabla `inicio_usuario`
+-- Indices de la tabla `inicio_usuario_natu`
 --
-ALTER TABLE `inicio_usuario`
+ALTER TABLE `inicio_usuario_natu`
   ADD KEY `Correo` (`Correo`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indices de la tabla `usuarios_natu`
 --
-ALTER TABLE `usuarios`
+ALTER TABLE `usuarios_natu`
   ADD PRIMARY KEY (`Id_Usuario`,`Correo`),
   ADD KEY `Correo` (`Correo`);
 
 --
--- Indices de la tabla `usuarios_eliminados`
+-- Indices de la tabla `zonas_artificiales_natu`
 --
-ALTER TABLE `usuarios_eliminados`
-  ADD KEY `Id_Usuario` (`Id_Usuario`);
-
---
--- Indices de la tabla `zonas_artificiales`
---
-ALTER TABLE `zonas_artificiales`
+ALTER TABLE `zonas_artificiales_natu`
   ADD KEY `Zona Artificial` (`ID_Zona`);
 
 --
--- Indices de la tabla `zonas_naturales`
+-- Indices de la tabla `zonas_naturales_natu`
 --
-ALTER TABLE `zonas_naturales`
+ALTER TABLE `zonas_naturales_natu`
   ADD PRIMARY KEY (`ID_Zona`),
   ADD KEY `Zona Natural` (`ID_Zona`);
 
 --
--- Indices de la tabla `zonas_verdes`
+-- Indices de la tabla `zonas_verdes_natu`
 --
-ALTER TABLE `zonas_verdes`
+ALTER TABLE `zonas_verdes_natu`
   ADD PRIMARY KEY (`ID_Zona`);
 
 --
@@ -494,81 +420,75 @@ ALTER TABLE `zonas_verdes`
 --
 
 --
--- AUTO_INCREMENT de la tabla `calificación`
+-- AUTO_INCREMENT de la tabla `calificacion_natu`
 --
-ALTER TABLE `calificación`
-  MODIFY `ID_Calificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+ALTER TABLE `calificacion_natu`
+  MODIFY `ID_Calificacion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `fauna`
+-- AUTO_INCREMENT de la tabla `fauna_natu`
 --
-ALTER TABLE `fauna`
+ALTER TABLE `fauna_natu`
   MODIFY `ID_Fauna` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `flora`
+-- AUTO_INCREMENT de la tabla `flora_natu`
 --
-ALTER TABLE `flora`
+ALTER TABLE `flora_natu`
   MODIFY `ID_Flora` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios_natu`
 --
-ALTER TABLE `usuarios`
-  MODIFY `Id_Usuario` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+ALTER TABLE `usuarios_natu`
+  MODIFY `Id_Usuario` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `zonas_verdes`
+-- AUTO_INCREMENT de la tabla `zonas_verdes_natu`
 --
-ALTER TABLE `zonas_verdes`
-  MODIFY `ID_Zona` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+ALTER TABLE `zonas_verdes_natu`
+  MODIFY `ID_Zona` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `actualizacion_usuarios`
+-- Filtros para la tabla `calificacion_natu`
 --
-ALTER TABLE `actualizacion_usuarios`
-  ADD CONSTRAINT `actualizacion_usuarios_ibfk_1` FOREIGN KEY (`Id_Usuario`) REFERENCES `usuarios` (`Id_Usuario`);
+ALTER TABLE `calificacion_natu`
+  ADD CONSTRAINT `calificacion_natu_ibfk_4` FOREIGN KEY (`ID_Zona`) REFERENCES `zonas_verdes_natu` (`ID_Zona`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `calificacion_natu_ibfk_5` FOREIGN KEY (`Id_Usuario`) REFERENCES `usuarios_natu` (`Id_Usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `calificación`
+-- Filtros para la tabla `fauna_natu`
 --
-ALTER TABLE `calificación`
-  ADD CONSTRAINT `calificación_ibfk_3` FOREIGN KEY (`Id_Usuario`) REFERENCES `usuarios` (`Id_Usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `calificación_ibfk_4` FOREIGN KEY (`ID_Zona`) REFERENCES `zonas_verdes` (`ID_Zona`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `fauna_natu`
+  ADD CONSTRAINT `fauna_natu_ibfk_1` FOREIGN KEY (`ID_Zona`) REFERENCES `zonas_naturales_natu` (`ID_Zona`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `fauna`
+-- Filtros para la tabla `flora_natu`
 --
-ALTER TABLE `fauna`
-  ADD CONSTRAINT `fauna_ibfk_1` FOREIGN KEY (`ID_Zona`) REFERENCES `zonas_naturales` (`ID_Zona`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `flora_natu`
+  ADD CONSTRAINT `flora_natu_ibfk_1` FOREIGN KEY (`ID_Zona`) REFERENCES `zonas_naturales_natu` (`ID_Zona`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `flora`
+-- Filtros para la tabla `inicio_usuario_natu`
 --
-ALTER TABLE `flora`
-  ADD CONSTRAINT `flora_ibfk_1` FOREIGN KEY (`ID_Zona`) REFERENCES `zonas_naturales` (`ID_Zona`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `inicio_usuario_natu`
+  ADD CONSTRAINT `inicio_usuario_natu_ibfk_1` FOREIGN KEY (`Correo`) REFERENCES `usuarios_natu` (`Correo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `inicio_usuario`
+-- Filtros para la tabla `zonas_artificiales_natu`
 --
-ALTER TABLE `inicio_usuario`
-  ADD CONSTRAINT `inicio_usuario_ibfk_1` FOREIGN KEY (`Correo`) REFERENCES `usuarios` (`Correo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `zonas_artificiales_natu`
+  ADD CONSTRAINT `zonas_artificiales_natu_ibfk_1` FOREIGN KEY (`ID_Zona`) REFERENCES `zonas_verdes_natu` (`ID_Zona`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `zonas_artificiales`
+-- Filtros para la tabla `zonas_naturales_natu`
 --
-ALTER TABLE `zonas_artificiales`
-  ADD CONSTRAINT `zonas_artificiales_ibfk_1` FOREIGN KEY (`ID_Zona`) REFERENCES `zonas_verdes` (`ID_Zona`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `zonas_naturales`
---
-ALTER TABLE `zonas_naturales`
-  ADD CONSTRAINT `zonas_naturales_ibfk_1` FOREIGN KEY (`ID_Zona`) REFERENCES `zonas_verdes` (`ID_Zona`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `zonas_naturales_natu`
+  ADD CONSTRAINT `zonas_naturales_natu_ibfk_1` FOREIGN KEY (`ID_Zona`) REFERENCES `zonas_verdes_natu` (`ID_Zona`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

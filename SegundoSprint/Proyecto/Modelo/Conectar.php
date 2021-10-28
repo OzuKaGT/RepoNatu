@@ -1,16 +1,17 @@
 <?php 
 
-$pass= '';
+$pass='';
 $user='root';
-$nombredb='natupoints';
+$nombredb='natupoints2';
 
 try {
-    $db= new PDO(
-        'mysql:host=localhost;dbname='.$nombredb,
+    $database= new PDO(
+        'mysql:host=127.0.0.1;dbname='.$nombredb,
         $user,
         $pass
     );
-} catch (Exception $e) {
+} 
+catch (Exception $e) {
     echo 'Error de conexion'.$e->getMessage();
 }
 
