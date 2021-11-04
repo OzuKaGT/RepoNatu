@@ -22,7 +22,7 @@ include_once '../Controlador/BuscarZonaAController.php';
         <nav>
             <ul class="nav_links">
                 <li> <a href="../Index.php">Inicio</a> </li>
-                <li> <a href="../Vista/Mapa.php ">Mapa</a> </li>
+                <li> <a href="Mapa.php">Mapa</a> </li>
             </ul>
         </nav>
     </header>

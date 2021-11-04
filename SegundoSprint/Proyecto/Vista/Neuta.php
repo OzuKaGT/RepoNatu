@@ -22,7 +22,7 @@
         </nav>
     </header>
     <section>
-    <table>
+    <table style="background-color:;">
             <tr>
                 <td class="vermas"><br>
                 <label class="tituloC"> Humedal Neuta </label><br>
