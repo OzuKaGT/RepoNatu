@@ -20,14 +20,14 @@
             <ul class="nav_links">
                 <li> <a href="Index.php">Inicio</a> </li>
                 <li> <a href="Vista/Mapa.php">Mapa</a> </li>
-                <li> <a href="Vista/RegistrarZonaN.php">Nueva Zona</a> </li>
+                <li> <a href="Vista/DesicionZona.php">Nueva Zona</a> </li>
             </ul>
         </nav>
     </header>
     <section>
         <table class="container-sm">
             <tr>
-                <aside class="Formato container-md">
+                <aside class="Formato">
                 <form method="POST"> 
                     <legend id="Sub_F"> INGRESA A TU CUENTA </legend>
                     <label class="TituF"> Correo: </label><br><br>
@@ -35,7 +35,7 @@
                     <legend class="TituF"> Contraseña: </legend><br>
                     <input type="password" placeholder="Contraseña" id="caja2" name="Contra" required><br><br>
                     <legend class="TituF"> ¿No tienes cuenta? Registrate <a href="Vista/Registrarse.php" target="blank" style="color: red;
-	background-color: #9de0ad;"> aqui </a></legend><br>
+	                    background-color: #9de0ad;"> aqui </a></legend><br>
                     <input type="submit" name="entrar" value="Ingresar" class="boton"><br><br>           
                     <?php 
                         include_once ('Controlador/ValidarInicio.php');

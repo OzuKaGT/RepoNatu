@@ -114,7 +114,7 @@ li a:hover{
     width: 330px;
     height: auto; 
     margin-right: 370px;
-    margin-top: -50px;
+    margin-top: 10px;
     margin-bottom: 130px;
     padding: 15px 15px 15px 15px;
 	background-color: #9de0ad;
@@ -127,7 +127,7 @@ li a:hover{
     width: 330px;
     height: auto;
     margin-left: 465px;
-    margin-top: -530px;
+    margin-top: -555px;
     margin-bottom: 130px;
     padding: 15px 15px 15px 15px;
     padding-bottom: 30px;
@@ -232,7 +232,7 @@ li a:hover{
 }
 .Formato{
     float: left;
-    width: 350px;
+    width: 500px;
     height: 450px;
 	background-color: #9de0ad;
     border-radius: 25px;
