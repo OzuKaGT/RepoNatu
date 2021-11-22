@@ -1,0 +1,16 @@
+Buenos días compañeros, este grupo es Natupoint y está conformado por: 
+Oscar Andres Amazo, Jaider Andres Rodriguez y Leyne Sarena Linares
+
+El modulo que escogimos para trabajar es el modulo de las zonas 
+
+Por lo tanto el inicio y el registro de USUARIOS no estan en uso, 
+unicamente sirve el crud de "Nueva Zona" tanto en Naturales como en Artificiales 
+
+GRACIAS POR SU COMPRENSION 
+att: Team  Natu
+
+//////////////////////////////
+Textarea infinita
+Caracteres especiales en inputs
+
+patern---->no permitir caracteres especiales uwu 
